@@ -6,3 +6,4 @@ export const command = new DefaultEntity('commands', []);
 export const product = new DefaultEntity('products', []);
 export const category = new DefaultEntity('categories', []);
 export const review = new DefaultEntity('reviews', []);
+export const template = new DefaultEntity('templates', []);

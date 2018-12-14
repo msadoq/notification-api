@@ -133,5 +133,11 @@ export default {
                 reviewer: 'Reviewer',
             },
         },
+        templates: {
+            name: 'Template |||| Templates',
+            fields: {
+
+            },
+        },
     },
 };

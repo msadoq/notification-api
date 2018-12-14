@@ -1,17 +1,7 @@
-import {
-    GET_LIST,
-    GET_ONE,
-    GET_MANY,
-    GET_MANY_REFERENCE,
-    CREATE,
-    UPDATE,
-    DELETE,
-    fetchUtils
-} from 'admin-on-rest';
+import {CREATE, DELETE, fetchUtils, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, UPDATE} from 'admin-on-rest';
 
 
-import {customer, segment, command, product, category, review} from './entities';
-import APIUtils from  './apiUtils';
+import {category, command, customer, product, review, segment, template} from './entities';
 
 
 const prepareGetListRequest = function(entity, params) {
@@ -29,6 +19,7 @@ const factory = function(resource) {
         case "products": return product;
         case "categories": return category;
         case "reviews": return review;
+        case "templates": return template;
         default: return null;
     }
 }

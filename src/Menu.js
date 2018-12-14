@@ -10,6 +10,7 @@ import { CommandIcon } from './commands';
 import { ProductIcon } from './products';
 import { CategoryIcon } from './categories';
 import { ReviewIcon } from './reviews';
+import { TemplateIcon} from './templates';
 
 const items = [
     { name: 'customers', icon: <VisitorIcon /> },
@@ -18,6 +19,7 @@ const items = [
     { name: 'products', icon: <ProductIcon /> },
     { name: 'categories', icon: <CategoryIcon /> },
     { name: 'reviews', icon: <ReviewIcon /> },
+    { name: 'templates', icon:<TemplateIcon />},
 ];
 
 const styles = {

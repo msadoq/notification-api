@@ -1,6 +1,6 @@
 import 'babel-polyfill';
-import React, { Component } from 'react';
-import { Admin, Delete, Resource } from 'admin-on-rest';
+import React, {Component} from 'react';
+import {Admin, Delete, Resource} from 'admin-on-rest';
 
 import './App.css';
 
@@ -10,20 +10,17 @@ import themeReducer from './themeReducer';
 import Login from './Login';
 import Layout from './Layout';
 import Menu from './Menu';
-import { Dashboard } from './dashboard';
+import {Dashboard} from './dashboard';
 import customRoutes from './routes';
 import translations from './i18n';
 
-import { VisitorList, VisitorEdit, VisitorDelete, VisitorIcon } from './visitors';
-import { CommandList, CommandEdit, CommandIcon } from './commands';
-import { ProductList, ProductCreate, ProductEdit, ProductIcon } from './products';
-import { CategoryList, CategoryEdit, CategoryIcon } from './categories';
-import { ReviewList, ReviewEdit, ReviewIcon } from './reviews';
-import { fetchUtils } from 'admin-on-rest';
+import {VisitorDelete, VisitorEdit, VisitorIcon, VisitorList} from './visitors';
+import {CommandEdit, CommandIcon, CommandList} from './commands';
+import {ProductCreate, ProductEdit, ProductIcon, ProductList} from './products';
+import {CategoryEdit, CategoryIcon, CategoryList} from './categories';
+import {ReviewEdit, ReviewIcon, ReviewList} from './reviews';
+import {TemplateEdit, TemplateIcon, TemplateList} from './templates';
 import restClient from './restClient';
-
-
-
 
 
 class App extends Component {
@@ -52,6 +49,7 @@ class App extends Component {
                 <Resource name="products" list={ProductList} create={ProductCreate} edit={ProductEdit} remove={Delete} icon={ProductIcon} />
                 <Resource name="categories" list={CategoryList} edit={CategoryEdit} remove={Delete} icon={CategoryIcon} />
                 <Resource name="reviews" list={ReviewList} edit={ReviewEdit} icon={ReviewIcon} />
+                <Resource name="templates" list={TemplateList} edit={TemplateEdit} icon={TemplateIcon} />
             </Admin>
         );
     }

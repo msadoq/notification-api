@@ -149,5 +149,11 @@ export default {
                 reviewer: 'Commentateur',
             },
         },
+        templates: {
+            name: 'Gabarit |||| Gabarits',
+            fields: {
+
+            },
+        },
     },
 };
