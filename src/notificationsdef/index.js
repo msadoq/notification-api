@@ -1,37 +1,48 @@
 import React from 'react';
 import {
+    choices,
+    Create,
     Datagrid,
     DateField,
     DateInput,
+    Delete,
     Edit,
     EditButton,
+    email,
     Filter,
     List,
     LongTextInput,
+    maxLength,
+    maxValue,
+    minLength,
+    minValue,
     NullableBooleanInput,
+    number,
     NumberField,
+    NumberInput,
+    ReferenceField,
     ReferenceInput,
+    regex,
+    required,
     SelectInput,
     SimpleForm,
     TextField,
     TextInput,
-    translate,
-    Create
+    translate
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/communication/comment';
 import TemplateReferenceField from '../templates/TemplateReferenceField';
-import { required, minLength, maxLength, minValue, maxValue, number, regex, email, choices } from 'admin-on-rest';
 
 export const NotificationDefIcon = Icon;
 
-const NotificationDefTitle = translate(({ record, translate }) => <span>{translate('resources.notificationsdef.name', { smart_count: 1 })} UID:{record.uid}</span>);
+const NotificationDefTitle = translate(({ record, translate }) => <span>{translate('resources.notificationsdef.name', { smart_count: 1 })} UID:{record.notifdefuid}</span>);
 
 
 export const NotificationDefList = (props) => (
-    <List {...props} filters={<NotificationDefFilter />} sort={{ field: 'uid', order: 'ASC' }} perPage={25}>
+    <List {...props} filters={<NotificationDefFilter />} sort={{ field: 'notifdefuid', order: 'ASC' }} perPage={25}>
         <Datagrid >
-            <TextField source="uid" />
-            <TemplateReferenceField />
+            <TextField source="notifdefuid" label="UID" />
+            <TemplateReferenceField label="Template UID"/>
             <TextField source="object" />
             <TextField source="from"/>
             <TextField source="to"/>
@@ -43,7 +54,9 @@ export const NotificationDefList = (props) => (
 export const NotificationDefEdit = translate(({ translate, ...rest }) => (
     <Edit title={<NotificationDefTitle />} {...rest} >
         <SimpleForm>
-            <TextInput source="object" validate={required}/>
+            <TextInput source="notifdefuid" label="UID" validate={required}/>
+            <TemplateReferenceField label="Template UID"/>
+            <TextInput source="object" validate={required }/>
             <TextInput source="from" validate={[required, email]}/>
             <TextInput source="to" validate={[required, email]}/>
         </SimpleForm>
@@ -53,11 +66,12 @@ export const NotificationDefEdit = translate(({ translate, ...rest }) => (
 export const NotificationDefCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
+            <TextInput source="notifdefuid" label="UID" validate={required}/>
             <TextInput source="object" validate={required}/>
             <TextInput source="from" validate={[required, email]}/>
             <TextInput source="to" validate={[required, email]}/>
-            <ReferenceInput source="id" reference="templates" allowEmpty>
-                <SelectInput source="uid" />
+            <ReferenceInput  label="Template UID" source="template_id" reference="templates" allowEmpty>
+                <SelectInput optionText="templateuid" />
             </ReferenceInput>
         </SimpleForm>
     </Create>
@@ -67,11 +81,13 @@ export const NotificationDefCreate = (props) => (
 const NotificationDefFilter = (props) => (
     <Filter {...props}>
         <TextInput label="pos.search" source="q" alwaysOn />
-        <TextInput source="uid" />
+        <TextInput source="notifdefuid" />
         <TextInput source="object" />
         <TextInput source="from"/>
         <TextInput source="to"/>
     </Filter>
 );
+
+export const NotificationDefDelete = (props) => <Delete {...props} title={<NotificationDefTitle />} />;
 
 
