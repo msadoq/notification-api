@@ -142,7 +142,7 @@ export default {
             },
         },
         notificationsdef: {
-            name: 'Notification |||| Notifications',
+            name: 'Notification definition |||| Notification definitions',
             fields: {
                 id: 'Id',
                 uid: 'UID',
