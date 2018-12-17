@@ -81,13 +81,12 @@ export const NotificationDefCreate = (props) => (
 const NotificationDefFilter = (props) => (
     <Filter {...props}>
         <TextInput label="pos.search" source="q" alwaysOn />
-        <TextInput source="notifdefuid" />
+        <TextInput source="notifdefuid" label="UID" />
         <TextInput source="object" />
         <TextInput source="from"/>
         <TextInput source="to"/>
     </Filter>
 );
-
 export const NotificationDefDelete = (props) => <Delete {...props} title={<NotificationDefTitle />} />;
 
 
