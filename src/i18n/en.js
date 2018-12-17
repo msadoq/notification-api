@@ -136,8 +136,21 @@ export default {
         templates: {
             name: 'Template |||| Templates',
             fields: {
-
+                id: "Id",
+                uid: "UID",
+                texte: "Text"
             },
         },
+        notificationsdef: {
+            name: 'Notification |||| Notifications',
+            fields: {
+                id: 'Id',
+                uid: 'UID',
+                object: 'Object',
+                from: 'From',
+                to: 'To',
+                template: 'Template'
+            }
+        }
     },
 };

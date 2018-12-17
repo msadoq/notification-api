@@ -152,8 +152,20 @@ export default {
         templates: {
             name: 'Gabarit |||| Gabarits',
             fields: {
-
+                id: 'Id',
+                uid: 'UID',
+                texte: 'Texte'
             },
         },
+        notificationsdef: {
+            name: 'Notification |||| Notifications',
+            fields: {
+                id: 'Id',
+                uid: 'UID',
+                object: 'Sujet',
+                from: 'De',
+                to: 'Pour'
+            }
+        }
     },
 };
