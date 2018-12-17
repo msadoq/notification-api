@@ -5,7 +5,8 @@ const TemplateReferenceField = (props) => (
     <ReferenceField label="Template" source="template_id" reference="templates" {...props}>
         <TextField source="id" />
     </ReferenceField>
-)
+);
+
 TemplateReferenceField.defaultProps = {
     source: 'template_id',
     addLabel: true,
