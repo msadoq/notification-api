@@ -20,7 +20,7 @@ import {ProductCreate, ProductEdit, ProductIcon, ProductList} from './products';
 import {CategoryEdit, CategoryIcon, CategoryList} from './categories';
 import {ReviewEdit, ReviewIcon, ReviewList} from './reviews';
 import {TemplateDelete, TemplateCreate, TemplateEdit, TemplateIcon, TemplateList} from './templates';
-import {NotificationDefCreate, NotificationDefEdit, NotificationDefIcon, NotificationDefList} from './notificationsdef';
+import {NotificationDefDelete, NotificationDefCreate, NotificationDefEdit, NotificationDefIcon, NotificationDefList} from './notificationsdef';
 import restClient from './restClient';
 
 
@@ -51,7 +51,7 @@ class App extends Component {
                 <Resource name="categories" list={CategoryList} edit={CategoryEdit} remove={Delete} icon={CategoryIcon} />
                 <Resource name="reviews" list={ReviewList} edit={ReviewEdit} icon={ReviewIcon} />
                 <Resource name="templates" list={TemplateList} create={TemplateCreate} edit={TemplateEdit} remove={TemplateDelete} icon={TemplateIcon} />
-                <Resource name="notificationsdef" list={NotificationDefList} create={NotificationDefCreate} edit={NotificationDefEdit} remove={Delete} icon={NotificationDefIcon} />
+                <Resource name="notificationsdef" list={NotificationDefList} create={NotificationDefCreate} edit={NotificationDefEdit} remove={NotificationDefDelete} icon={NotificationDefIcon} />
             </Admin>
         );
     }
