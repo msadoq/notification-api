@@ -28,12 +28,12 @@ import { required, minLength, maxLength, minValue, maxValue, number, regex, emai
 
 export const TemplateIcon = Icon;
 
-const TemplateTitle = translate(({ record, translate }) => <span>{translate('resources.templates.name', { smart_count: 1 })} UID:{record.uid}</span>);
+const TemplateTitle = translate(({ record, translate }) => <span>{translate('resources.templates.name', { smart_count: 1 })} UID:{record.templateuid}</span>);
 
 export const TemplateList = (props) => (
-    <List {...props} filters={<TemplateFilter />} sort={{ field: 'uid', order: 'ASC' }} perPage={25}>
+    <List {...props} filters={<TemplateFilter />} sort={{ field: 'templateuid', order: 'ASC' }} perPage={25}>
         <Datagrid >
-            <TextField source="uid" />
+            <TextField source="templateuid" label="UID" />
             <RichTextField source="texte" style={{ maxWidth: '18em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} />
             <EditButton />
         </Datagrid>
@@ -43,7 +43,7 @@ export const TemplateList = (props) => (
 export const TemplateEdit = translate(({ translate, ...rest }) => (
     <Edit title={<TemplateTitle />} {...rest} >
         <SimpleForm>
-            <TextInput source="uid" validate={required}/>
+            <TextInput source="templateuid" label="UID" validate={required}/>
             <RichTextInput source="texte" validate={required} addLabel={true} />
         </SimpleForm>
     </Edit>
@@ -52,7 +52,7 @@ export const TemplateEdit = translate(({ translate, ...rest }) => (
 export const TemplateCreate = (props) => (
     <Create {...props}>
         <SimpleForm>
-            <TextInput source="uid" validate={required} />
+            <TextInput source="templateuid" label="UID" validate={required} />
             <RichTextInput source="texte" validate={required} />
         </SimpleForm>
     </Create>
@@ -61,12 +61,10 @@ export const TemplateCreate = (props) => (
 const TemplateFilter = (props) => (
     <Filter {...props}>
         <TextInput label="pos.search" source="q" alwaysOn />
-        <TextInput source="uid" />
+        <TextInput source="templateuid" label="UID" />
     </Filter>
 );
 
-const TemplateDeleteTitle = translate(({ record, translate }) => <span>{translate('resources.templates.name', { smart_count: 1 })} UID:{record.uid}</span>);
-
-export const TemplateDelete = (props) => <Delete {...props} title={<TemplateDeleteTitle />} />;
+export const TemplateDelete = (props) => <Delete {...props} title={<TemplateTitle />} />;
 
 

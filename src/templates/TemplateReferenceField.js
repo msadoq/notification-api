@@ -2,8 +2,8 @@ import React from 'react';
 import { ReferenceField, TextField } from 'admin-on-rest';
 
 const TemplateReferenceField = (props) => (
-    <ReferenceField label="Template" source="template_id" reference="templates" {...props}>
-        <TextField source="id" />
+    <ReferenceField label="Template" source="id" reference="templates" {...props}>
+        <TextField source="templateuid" />
     </ReferenceField>
 );
 

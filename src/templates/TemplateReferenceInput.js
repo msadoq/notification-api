@@ -1,15 +1,15 @@
 import React from 'react';
-import { ReferenceField, TextField } from 'admin-on-rest';
+import { ReferenceField, TextInput } from 'admin-on-rest';
 
-const TemplateReferenceField = (props) => (
+const TemplateReferenceInput = (props) => (
     <ReferenceField label="Template" source="id" reference="templates" {...props}>
-        <TextField source="uid" />
+        <TextInput source="templateuid" />
     </ReferenceField>
 );
 
-TemplateReferenceField.defaultProps = {
+TemplateReferenceInput.defaultProps = {
     source: 'template_id',
     addLabel: true,
 };
 
-export default TemplateReferenceField;
+export default TemplateReferenceInput;
