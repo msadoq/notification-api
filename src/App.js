@@ -19,7 +19,8 @@ import {CommandEdit, CommandIcon, CommandList} from './commands';
 import {ProductCreate, ProductEdit, ProductIcon, ProductList} from './products';
 import {CategoryEdit, CategoryIcon, CategoryList} from './categories';
 import {ReviewEdit, ReviewIcon, ReviewList} from './reviews';
-import {TemplateEdit, TemplateIcon, TemplateList} from './templates';
+import {TemplateCreate, TemplateEdit, TemplateIcon, TemplateList} from './templates';
+import {NotificationDefCreate, NotificationDefEdit, NotificationDefIcon, NotificationDefList} from './notificationsdef';
 import restClient from './restClient';
 
 
@@ -32,7 +33,7 @@ class App extends Component {
     render() {
         return (
             <Admin
-                title="Posters Galore Admin"
+                title="Notification Service Admin"
                 restClient={restClient}
                 customReducers={{ theme: themeReducer }}
                 customSagas={sagas}
@@ -49,7 +50,8 @@ class App extends Component {
                 <Resource name="products" list={ProductList} create={ProductCreate} edit={ProductEdit} remove={Delete} icon={ProductIcon} />
                 <Resource name="categories" list={CategoryList} edit={CategoryEdit} remove={Delete} icon={CategoryIcon} />
                 <Resource name="reviews" list={ReviewList} edit={ReviewEdit} icon={ReviewIcon} />
-                <Resource name="templates" list={TemplateList} edit={TemplateEdit} icon={TemplateIcon} />
+                <Resource name="templates" list={TemplateList} create={TemplateCreate} edit={TemplateEdit} remove={Delete} icon={TemplateIcon} />
+                <Resource name="notificationsdef" list={NotificationDefList} create={NotificationDefCreate} edit={NotificationDefEdit} remove={Delete} icon={NotificationDefIcon} />
             </Admin>
         );
     }
