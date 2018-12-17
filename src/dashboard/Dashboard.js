@@ -112,7 +112,7 @@ class Dashboard extends Component {
         const { width } = this.props;
         return (
             <div>
-                {width === 1 && <AppBarMobile title="Posters Galore Admin" />}
+                {width === 1 && <AppBarMobile title="Notification Service Admin" />}
                 <Welcome style={styles.welcome} />
                 <div style={styles.flex}>
                     <div style={styles.leftCol}>
