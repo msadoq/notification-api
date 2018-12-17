@@ -1,8 +1,5 @@
 import React from 'react';
 import {
-    AutocompleteInput,
-    BooleanField,
-    BooleanInput,
     Datagrid,
     DateField,
     DateInput,
@@ -18,16 +15,19 @@ import {
     SimpleForm,
     TextField,
     TextInput,
-    translate
+    translate,
+    Create
 } from 'admin-on-rest';
-import Icon from 'material-ui/svg-icons/social/notifications';
+import Icon from 'material-ui/svg-icons/action/bookmark';
+import {AutocompleteInput} from "../commands";
+import { required, minLength, maxLength, minValue, maxValue, number, regex, email, choices } from 'admin-on-rest';
 
 export const TemplateIcon = Icon;
 
-const TemplateTitle = translate(({ record, translate }) => <span>{translate('resources.templates.name', { smart_count: 1 })} "{record.name}"</span>);
+const TemplateTitle = translate(({ record, translate }) => <span>{translate('resources.templates.name', { smart_count: 1 })} UID:{record.uid}</span>);
 
 export const TemplateList = (props) => (
-    <List {...props} perPage={25}>
+    <List {...props} filters={<TemplateFilter />} sort={{ field: 'uid', order: 'ASC' }} perPage={25}>
         <Datagrid >
             <TextField source="uid" />
             <TextField source="texte" style={{ maxWidth: '18em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} />
@@ -36,13 +36,29 @@ export const TemplateList = (props) => (
     </List>
 );
 
-const detailStyle = { display: 'inline-block', verticalAlign: 'top', marginRight: '2em', minWidth: '8em' };
-
-export const TemplateEdit = (props) => (
-    <Edit {...props} >
+export const TemplateEdit = translate(({ translate, ...rest }) => (
+    <Edit title={<TemplateTitle />} {...rest} >
         <SimpleForm>
-            <LongTextInput source="texte" />
+            <LongTextInput source="texte" validate={required} />
         </SimpleForm>
     </Edit>
+));
+
+export const TemplateCreate = (props) => (
+    <Create {...props}>
+        <SimpleForm>
+            <TextInput source="uid" validate={required} />
+            <LongTextInput source="texte" validate={required} />
+        </SimpleForm>
+    </Create>
 );
+
+
+const TemplateFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="pos.search" source="q" alwaysOn />
+        <TextInput source="uid" />
+    </Filter>
+);
+
 
