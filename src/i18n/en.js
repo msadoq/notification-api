@@ -149,7 +149,8 @@ export default {
                 object: 'Object',
                 from: 'From',
                 to: 'To',
-                template: 'Template'
+                template: 'Template',
+                notifsdef: 'Notification definitions'
             }
         }
     },

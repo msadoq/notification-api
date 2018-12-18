@@ -24,6 +24,7 @@ import Icon from 'material-ui/svg-icons/action/bookmark';
 import {AutocompleteInput} from "../commands";
 import RichTextInput from 'aor-rich-text-input';
 import { required, minLength, maxLength, minValue, maxValue, number, regex, email, choices } from 'admin-on-rest';
+import LinkToRelatedNotifDef from "./LinkToRelatedNotifDef";
 
 
 export const TemplateIcon = Icon;
@@ -34,6 +35,7 @@ export const TemplateList = (props) => (
     <List {...props} filters={<TemplateFilter />} sort={{ field: 'templateuid', order: 'ASC' }} perPage={25}>
         <Datagrid >
             <TextField source="templateuid" label="UID" />
+            <LinkToRelatedNotifDef />
             <RichTextField source="texte" style={{ maxWidth: '18em', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} />
             <EditButton />
         </Datagrid>

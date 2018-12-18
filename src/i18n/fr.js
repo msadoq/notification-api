@@ -164,7 +164,8 @@ export default {
                 uid: 'UID',
                 object: 'Sujet',
                 from: 'De',
-                to: 'Pour'
+                to: 'Pour',
+                notifsdef: 'Définitions de notification'
             }
         }
     },
