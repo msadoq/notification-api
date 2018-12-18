@@ -32,11 +32,20 @@ import {
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/communication/comment';
 import TemplateReferenceField from '../templates/TemplateReferenceField';
+import EmailsToField from '../notificationsdef/EmailsToField'
 
 export const NotificationDefIcon = Icon;
 
 const NotificationDefTitle = translate(({ record, translate }) => <span>{translate('resources.notificationsdef.name', { smart_count: 1 })} UID:{record.notifdefuid}</span>);
 
+const NotificationDefFilter = (props) => (
+    <Filter {...props}>
+        <TextInput label="pos.search" source="q" alwaysOn />
+        <TextInput source="notifdefuid" label="UID" />
+        <TextInput source="object" />
+        <TextInput source="from"/>
+    </Filter>
+);
 
 export const NotificationDefList = (props) => (
     <List {...props} filters={<NotificationDefFilter />} sort={{ field: 'notifdefuid', order: 'ASC' }} perPage={25}>
@@ -45,7 +54,7 @@ export const NotificationDefList = (props) => (
             <TemplateReferenceField label="Template UID"/>
             <TextField source="object" />
             <TextField source="from"/>
-            <TextField source="to"/>
+            <EmailsToField />
             <EditButton />
         </Datagrid>
     </List>
@@ -58,7 +67,7 @@ export const NotificationDefEdit = translate(({ translate, ...rest }) => (
             <TemplateReferenceField label="Template UID"/>
             <TextInput source="object" validate={required }/>
             <TextInput source="from" validate={[required, email]}/>
-            <TextInput source="to" validate={[required, email]}/>
+            <EmailsToField />
         </SimpleForm>
     </Edit>
 ));
@@ -78,15 +87,7 @@ export const NotificationDefCreate = (props) => (
 );
 
 
-const NotificationDefFilter = (props) => (
-    <Filter {...props}>
-        <TextInput label="pos.search" source="q" alwaysOn />
-        <TextInput source="notifdefuid" label="UID" />
-        <TextInput source="object" />
-        <TextInput source="from"/>
-        <TextInput source="to"/>
-    </Filter>
-);
+
 export const NotificationDefDelete = (props) => <Delete {...props} title={<NotificationDefTitle />} />;
 
 
