@@ -81,13 +81,15 @@ export default class APIUtils {
             let valIsNumberArray = valIsArray && val.length > 0 && Number.isInteger(val[0]);
             let valIsObject = val !== null && val.hasOwnProperty("id") && !valIsArray && !valIsNumber;
 
+            //if (key == "parameters") valIsEmbedded = true;
+            
             if(valIsEmbedded && !rowInList) {
                 result[key] = val;
             }
             else if (valIsEmptyArray) {
                 result[key] = val;
             }
-            else if (valIsObjectArray) {
+            else if (valIsEmbedded && valIsObjectArray) {
                 result[key] = val.map((el) => { return el.id });
             }
             else if (valIsNumberArray) {
