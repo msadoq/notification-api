@@ -28,11 +28,14 @@ import {
     SimpleForm,
     TextField,
     TextInput,
-    translate
+    translate,
+    TabbedForm,
+    FormTab
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/communication/comment';
 import TemplateReferenceField from '../templates/TemplateReferenceField';
-import EmailsToField from '../notificationsdef/EmailsToField'
+import EmailsToField from './EmailsToField';
+import ParameterTable from './ParameterTable'
 
 export const NotificationDefIcon = Icon;
 
@@ -64,10 +67,12 @@ export const NotificationDefEdit = translate(({ translate, ...rest }) => (
     <Edit title={<NotificationDefTitle />} {...rest} >
         <SimpleForm>
             <TextInput source="notifdefuid" label="UID" validate={required}/>
-            <TemplateReferenceField label="Template UID"/>
+            <ReferenceInput  label="Template UID" source="template_id" reference="templates" allowEmpty>
+                <SelectInput optionText="templateuid" />
+            </ReferenceInput>
             <TextInput source="object" validate={required }/>
             <TextInput source="from" validate={[required, email]}/>
-            <EmailsToField />
+            <ParameterTable />
         </SimpleForm>
     </Edit>
 ));
