@@ -15,4 +15,5 @@
         "react/jsx-indent-props": ["warn", 4],
         "react/jsx-filename-extension": ["off"]
     },
+    "-W065": true
 }

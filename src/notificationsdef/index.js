@@ -1,36 +1,20 @@
 import React from 'react';
 import {
-    choices,
     Create,
     Datagrid,
-    DateField,
-    DateInput,
     Delete,
     Edit,
     EditButton,
     email,
     Filter,
     List,
-    LongTextInput,
-    maxLength,
-    maxValue,
-    minLength,
-    minValue,
-    NullableBooleanInput,
-    number,
-    NumberField,
-    NumberInput,
-    ReferenceField,
     ReferenceInput,
-    regex,
     required,
     SelectInput,
     SimpleForm,
     TextField,
     TextInput,
     translate,
-    TabbedForm,
-    FormTab
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/communication/comment';
 import TemplateReferenceField from '../templates/TemplateReferenceField';
@@ -72,7 +56,6 @@ export const NotificationDefEdit = translate(({ translate, ...rest }) => (
             </ReferenceInput>
             <TextInput source="object" validate={required }/>
             <TextInput source="from" validate={[required, email]}/>
-            <ParameterTable />
         </SimpleForm>
     </Edit>
 ));

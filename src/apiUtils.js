@@ -1,4 +1,3 @@
-import format from 'string-format';
 import { stringify } from 'query-string';
 export default class APIUtils {
 
@@ -211,7 +210,7 @@ export default class APIUtils {
         if (!filters) {
             return {};
         }
-        let userId = parseInt(localStorage.getItem('user_id'));
+        let userId = parseInt(localStorage.getItem('user_id'), 10);
         if (APIUtils.isStaff()) {
             filters.staffId = [userId];
             filters.staff = [userId];

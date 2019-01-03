@@ -1,44 +1,39 @@
 import React from 'react';
+import {ArrayInput, SimpleFormIterator, DateInput, TextInput} from 'admin-on-rest';
+import './backlinks.json';
+// import { map } from 'lodash';
+//
+// const ParameterTable = ({record}) => {
+//     console.log('record: ----------------', record);
+//     return (
+//         <ArrayInput source="parameters">
+//             <SimpleFormIterator>
+//                 {map(record.parameters,(val, key) => (
+//                     <TextInput source="id"/>
+//                 ))}
+//             </SimpleFormIterator>
+//         </ArrayInput>
+//     )
+// };
+//
+// const TranslatedParameterTable = translate(ParameterTable);
+//
+// TranslatedParameterTable.defaultProps = {
+//     addLabel: true,
+//     source: 'parameters',
+// };
+//
+// export default TranslatedParameterTable;
 
-import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn,} from 'material-ui/Table';
-import {translate} from 'admin-on-rest'
-import {map} from 'lodash';
-
-const ParameterTable = ({record}) => {
-    console.log('record: ----------------', record);
+const ParameterTable = () => {
     return (
-        <Table>
-            <TableHeader>
-                <TableRow>
-                    <TableHeaderColumn>Key</TableHeaderColumn>
-                    <TableHeaderColumn>Value</TableHeaderColumn>
-                    <TableHeaderColumn>Type</TableHeaderColumn>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {map(record.parameters,(val, key) => (
-                    <TableRow key={key}>
-                        <TableRowColumn>
-                            <div>{val.key}</div>
-                        </TableRowColumn>
-                        <TableRowColumn>
-                            <div>{val.value}</div>
-                        </TableRowColumn>
-                        <TableRowColumn>
-                            <div>{val.type}</div>
-                        </TableRowColumn>
-                    </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+        <ArrayInput source="backlinks">
+            <SimpleFormIterator>
+                <DateInput source="date" />
+                <TextInput source="url" />
+            </SimpleFormIterator>
+        </ArrayInput>
     )
 };
 
-const TranslatedParameterTable = translate(ParameterTable);
-
-TranslatedParameterTable.defaultProps = {
-    addLabel: true,
-    source: 'parameters',
-};
-
-export default TranslatedParameterTable;
+export default ParameterTable;

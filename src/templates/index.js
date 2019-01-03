@@ -1,18 +1,11 @@
 import React from 'react';
 import {
     Datagrid,
-    DateField,
-    DateInput,
     Edit,
     EditButton,
     Filter,
     List,
-    LongTextInput,
-    NullableBooleanInput,
-    NumberField,
-    ReferenceInput,
     RichTextField,
-    SelectInput,
     SimpleForm,
     TextField,
     TextInput,
@@ -21,9 +14,8 @@ import {
     Delete
 } from 'admin-on-rest';
 import Icon from 'material-ui/svg-icons/action/bookmark';
-import {AutocompleteInput} from "../commands";
 import RichTextInput from 'aor-rich-text-input';
-import { required, minLength, maxLength, minValue, maxValue, number, regex, email, choices } from 'admin-on-rest';
+import { required } from 'admin-on-rest';
 import LinkToRelatedNotifDef from "./LinkToRelatedNotifDef";
 
 
